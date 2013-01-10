@@ -38,7 +38,7 @@ export PATH=/usr/local/Cellar:$PATH
 export TERM=screen-256color
 
 #tmux colors
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=xterm-256color tmux"
 
 # useful commands
 alias chrome='open -a "Google Chrome"'

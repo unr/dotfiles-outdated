@@ -51,6 +51,7 @@ task :install => [:generate_gitconfig_from_template] do
   overwrite_all = false
   backup_all = false
 
+  # install oh-my-zsh
   `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
   linkables.each do |linkable|

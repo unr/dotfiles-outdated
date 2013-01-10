@@ -90,10 +90,11 @@ if has("autocmd")
   au BufNewFile,BufRead *.jst set ft=html
   au BufNewFile,BufRead *.mustache set ft=html
   au BufNewFile,BufRead *.jeco set ft=eco
-  au BufRead,BufEnter *.scss let b:syntastic_mode = 'passive'
+  au BufNewFile,BufRead,BufEnter *.scss let b:syntastic_mode = 'passive'
 
   " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
+  au FileType conf set ft=sh
+  au BufNewFile,BufRead *.conf set ft=sh
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
