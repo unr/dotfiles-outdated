@@ -51,6 +51,8 @@ task :install => [:generate_gitconfig_from_template] do
   overwrite_all = false
   backup_all = false
 
+  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+
   linkables.each do |linkable|
     overwrite = false
     backup = false
@@ -76,7 +78,6 @@ task :install => [:generate_gitconfig_from_template] do
     end
     `ln -s "$PWD/#{path}" "#{target}"`
   end
-  `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
 
 end
 

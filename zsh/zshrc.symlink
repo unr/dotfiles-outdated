@@ -56,6 +56,5 @@ alias app=$CODE/torontostar
 alias sdk=$CODE/MediaEverywhere-SDK
 alias cli=$CODE/MediaEverywhere-CLI
 
-
 # work specific
 alias debug="me build --debug --serve --watch"

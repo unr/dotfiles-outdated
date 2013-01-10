@@ -23,17 +23,15 @@
     evil
     evil-leader
     scss-mode
-    helm
-    helm-git
     )
   "A list of packages to ensure are installed at launch.")
 
 ;; stop creating #files# 
 (setq make-backup-files nil)
 
-;; init helm mode
-(require 'helm-config)
-(helm-mode 1)
+; ;; init helm mode
+; (require 'helm-config)
+; (helm-mode 1)
 
 ;; local plugins go in /plugins
 (add-to-list 'load-path "~/.emacs.d/plugins")

@@ -90,6 +90,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.jst set ft=html
   au BufNewFile,BufRead *.mustache set ft=html
   au BufNewFile,BufRead *.jeco set ft=eco
+  au BufRead,BufEnter *.scss let b:syntastic_mode = 'passive'
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
@@ -180,7 +181,6 @@ map <leader>c :CoffeeCompile<CR>
 
 "autoclose
 nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
-
 
 " c:number to jump coffee/js
 command -nargs=1 C CoffeeCompile | :<args>
