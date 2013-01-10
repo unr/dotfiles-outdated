@@ -160,8 +160,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
 
-" CoffeeTags 
- let g:tagbar_type_coffee = {
+" CoffeeTags
+let g:tagbar_type_coffee = {
   \ 'kinds' : [
   \   'f:functions',
   \   'o:object'
