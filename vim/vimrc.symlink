@@ -13,6 +13,9 @@ filetype plugin indent on
 
 call togglebg#map("<F5>")
 
+"shell
+set shell=/bin/bash
+
 " Some view/ux related stuff
 set background=dark
 colorscheme solarized
@@ -203,3 +206,9 @@ let g:SuperTabDefaultCompletionType = "context"
 " Paste last yanked item, even after deleting.
 noremap <Leader>p "0p
 noremap <Leader>P "0P
+
+"syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['scss'] }
+
