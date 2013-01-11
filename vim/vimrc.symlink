@@ -91,9 +91,7 @@ if has("autocmd")
   au BufRead,BufNewFile Jakefile setf javascript
   au BufRead,BufNewFile [Vv]olofile setf javascript
   au BufNewFile,BufRead *.jst set ft=html
-  au BufNewFile,BufRead *.mustache set ft=html
   au BufNewFile,BufRead *.jeco set ft=eco
-  au BufNewFile,BufRead,BufEnter *.scss let b:syntastic_mode = 'passive'
 
   " Treat JSON files like JavaScript
   au FileType conf set ft=sh
@@ -150,8 +148,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" disable cursor keys in normal mode
-map <Left>  :echo "no!"<cr>
+" disable cursor keys in normal mode map <Left>  :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up>    :echo "no!"<cr>
 map <Down>  :echo "no!"<cr>
@@ -208,7 +205,19 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 
 "syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['scss'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
 
+map <leader>j :call ToggleJournal()<CR>
+
+" Toggle Taskpaper Journal
+let g:journal_toggle=0
+
+function ToggleJournal()
+  if g:journal_toggle
+      :bd journal.taskpaper
+      let g:journal_toggle=0
+  else
+      :split ~/Dropbox/TODO/journal.taskpaper
+      let g:journal_toggle=1
+  endif
+endfunction
