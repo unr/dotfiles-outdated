@@ -197,9 +197,6 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = 'build'
 let g:ctrlp_follow_symlinks = 1
 
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
 " Paste last yanked item, even after deleting.
 noremap <Leader>p "0p
 noremap <Leader>P "0P
@@ -221,3 +218,24 @@ function ToggleJournal()
       let g:journal_toggle=1
   endif
 endfunction
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_delimiter = 1
+
+" Recommended key-mappings.
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Pressing `enter` will complete word and close completion menu.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction"

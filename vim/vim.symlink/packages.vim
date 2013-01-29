@@ -8,11 +8,8 @@ Bundle 'The-NERD-tree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-Bundle "garbas/vim-snipmate"
 Bundle "altercation/vim-colors-solarized"
 Bundle 'Solarized'
-Bundle 'SuperTab-continued.'
 Bundle 'surround.vim'
 Bundle 'Tagbar'
 Bundle 'tComment'
@@ -23,7 +20,9 @@ Bundle 'AutoClose'
 Bundle 'sjl/vitality.vim'
 Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'vundle'
-Bundle 'vim-scripts/AutoComplPop'
 Bundle 'juvenn/mustache.vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'taskpaper.vim'
+Bundle 'vim-scripts/greplace.vim'
+Bundle 'neocomplcache'
+Bundle 'neocomplcache-snippets_complete'
