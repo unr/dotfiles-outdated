@@ -47,6 +47,7 @@ alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
 alias vimclean='vim +BundleClean'
+alias gdiff='git diff | vim -'
 
 # directory aliases
 export CODE="~/Code"
