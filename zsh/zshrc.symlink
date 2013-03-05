@@ -46,7 +46,7 @@ alias npmi="npm install -g"
 alias pbc='pwd | pbcopy'
 alias rnpm='rm -rf node_modules && npm install'
 alias viminstall='vim +BundleInstall +qall'
-alias vimclean='vim +BundleClean'
+alias vimclean='vim +BundleClean +qall'
 alias gdiff='git diff | vim -'
 
 # directory aliases
@@ -55,6 +55,7 @@ alias ap=$CODE/perf
 alias app=$CODE/perf
 alias sdk=$CODE/MediaEverywhere-SDK
 alias cli=$CODE/MediaEverywhere-CLI
+alias ks=$CODE/kitchensink
 
 # work specific
 alias debug="me build --debug --serve --watch"

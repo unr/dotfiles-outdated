@@ -71,6 +71,8 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set cc=80                       " set colorcolumn 80 to visualize 80th column
 
+nnoremap Q <Nop>
+
 set wildmenu
 set wildmode=list:longest,full
 
