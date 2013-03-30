@@ -27,7 +27,7 @@ set showcmd                     " display incomplete commands
 set title                       " set the screen title to the currently opened file
 set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
-set cmdheight=2
+set cmdheight=1
 let g:Powerline_symbols = 'fancy'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
