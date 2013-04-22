@@ -7,6 +7,10 @@ call vundle#rc()
 " load all plugins
 source $HOME/.vim/packages.vim
 
+" set up splits
+set splitbelow
+set splitright
+
 set encoding=utf-8
 
 filetype plugin indent on
