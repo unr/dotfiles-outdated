@@ -1,5 +1,5 @@
-syntax enable
 set nocompatible               " be iMproved
+syntax enable
 filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -31,7 +31,7 @@ set showcmd                     " display incomplete commands
 set title                       " set the screen title to the currently opened file
 set gcr=n:blinkon0              " stop blinking cursors
 set laststatus=2                " for powerline visiblity
-set cmdheight=1
+set cmdheight=2
 let g:Powerline_symbols = 'fancy'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -118,6 +118,7 @@ set scrolloff=3
 
 "" Mappings
 let mapleader=";"
+let maplocalleader=";"
 
 " clear the search buffer when hitting ;return
 map <silent> <leader><cr> :noh<cr>
@@ -154,7 +155,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" disable cursor keys in normal mode map <Left>  :echo "no!"<cr>
+" disable cursor keys in normal mode 
+map <Left>  :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up>    :echo "no!"<cr>
 map <Down>  :echo "no!"<cr>
@@ -245,3 +247,69 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>t :call RunTestFile()<cr>
+" map <leader>a :call RunTests('')<cr>
+" map <leader>T :call RunNearestTest()<cr>
+
+function! RunTestFile(...)
+    if a:0
+        let command_suffix = a:1
+    else
+        let command_suffix = ""
+    endif
+
+    " Run the tests for the previously-marked file.
+    let in_test_file = match(expand("%"), '\(._spec.coffee\)$') != -1
+    if in_test_file
+        call SetTestFile()
+    elseif !exists("t:grb_test_file")
+        return
+    end
+    call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+    let spec_line_number = line('.')
+    call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+function! SetTestFile()
+    " Set the spec file that tests will be run for.
+    let t:grb_test_file=@%
+endfunction
+
+function! RunTests(filename)
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if filereadable("bin/test")
+      exec ":!bin/test " . a:filename
+    else
+      exec ":!node_modules/.bin/mocha " . a:filename
+    end
+endfunction
+
+" open .vimrc
+nmap <leader>v :tabnew ~/.vimrc <cr>
+
+" ternjs settings
+autocmd BufEnter *.js set updatetime=500
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_map_keys = 1
+
+
+" keychord bindings
+" Arpeggionmap jk <C-d>
+" Arpeggionmap df <C-u>
+
+call arpeggio#map('n', '', 0, 'jk', '<C-d>')
+call arpeggio#map('n', '', 0, 'fd', '<C-u>')
