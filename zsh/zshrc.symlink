@@ -27,22 +27,32 @@ bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew npm osx git vi-mode zsh-syntax-highlighting)
+plugins=(brew npm osx git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+export PATH=/Applications/MAMP/Library/bin:$PATH # for mysql
 export PATH=/opt/local/bin:$PATH
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=/usr/local/Cellar/ruby/1.9.3-p327/bin:$PATH
 export PATH=/usr/local/Cellar/git/1.8.1/bin:$PATH
 export PATH=/usr/local/Cellar:$PATH
 export TERM=screen-256color
 
+# For WP CLI 
+export WP_CLI_PHP=/Applications/MAMP/bin/php/php5.3.6/bin/php
+
+
+# testing python updates
+export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
+
+
 #tmux colors
 alias tmux="TERM=xterm-256color tmux"
 
+alias ngrok="~/ngrok"
 
 
 # useful commands
@@ -55,13 +65,7 @@ alias vimclean='vim +BundleClean +qall'
 alias gdiff='git diff | vim -'
 
 # directory aliases
-export CODE="~/Code/polar-mobile"
 alias vim=/opt/local/bin/vim
-alias ap=$CODE/perf
-alias app=$CODE/perf
-alias sdk=$CODE/MediaEverywhere-SDK
-alias cli=$CODE/MediaEverywhere-CLI
-alias ks=$CODE/kitchensink
 
 # work specific
 alias debug="me build --debug --serve --watch --discoverable"
